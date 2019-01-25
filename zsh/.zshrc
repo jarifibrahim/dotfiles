@@ -111,9 +111,10 @@ export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/go/bin
 
 alias dcm="docker-compose up -d db-auth auth db && make migrate-database"
-alias dra="docker rm -f \$(docker ps -aq)"
+alias dra="docker rm -v -f \$(docker ps -aq)"
 alias db="pgcli postgres://postgres:mysecretpassword@localhost:5432/postgres"
 
+alias c="code ."
 export GOCACHE=off
 
 alias wit="cd $GOPATH/src/github.com/fabric8-services/fabric8-wit"
@@ -127,3 +128,12 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # Use 'bat' instead of cat
 alias cat=bat
+
+# fabric8-wit environment variables
+export F8_DEVELOPER_MODE_ENABLED=1
+export F8_RESOURCE_DATABASE=1
+export F8_RESOURCE_UNIT_TEST=0
+
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
