@@ -1,0 +1,32 @@
+{
+    "window.zoomLevel": 2,
+    "files.exclude": {
+        "**/.js.map": true,
+        "**/.js": {
+            "when": "$(basename).ts"
+        },
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "extensions.ignoreRecommendations": false,
+    "workbench.sideBar.location": "left",
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "go.testFlags": [
+        "-v"
+    ],
+    "cSpell.language": "en"
+}
