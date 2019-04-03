@@ -1,0 +1,14 @@
+httpie
+psql
+curl
+wget
+fzf
+git
+python
+gcc
+vscode
+virtualenv
+ls--
+npm
+n
+system-monitor - https://extensions.gnome.org/extension/120/system-monitor/
