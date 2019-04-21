@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/ijarif/.oh-my-zsh
+  export ZSH=/home/ibrahim/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -112,28 +112,8 @@ export PATH=$PATH:/usr/local/go/bin
 
 alias dcm="docker-compose up -d db-auth auth db && make migrate-database"
 alias dra="docker rm -v -f \$(docker ps -aq)"
-alias db="pgcli postgres://postgres:mysecretpassword@localhost:5432/postgres"
 
 alias c="code ."
-export GOCACHE=off
-
-alias wit="cd $GOPATH/src/github.com/fabric8-services/fabric8-wit"
-alias run-pr='function _run_pr(){ docker pull registry.devshift.net/fabric8-ui/fabric8-planner:SNAPSHOT-PR-$1 && docker run -it -p 5000:8080 registry.devshift.net/fabric8-ui/fabric8-planner:SNAPSHOT-PR-$1 }; _run_pr'
-alias log-prod-preview="f() { git log --oneline \$(curl -s https://api.prod-preview.openshift.io/api/status | jq .commit | tr -d '\"' | cut -c 1-8)..upstream/master};"
-alias log-prod='f() { local commit=$(curl -s https://api.openshift.io/api/status  | jq .commit | tr -d '\"' | cut -c 1-8); git log --oneline -n 30 upstream/master | grep --color -E "^|$commit.*" }; f'
-alias diff-prod="git log --oneline \$(curl -s https://api.openshift.io/api/status  | jq .commit | tr -d '\"' | cut -c 1-7)..upstream/master"
-
-# Rust Cargo binaries
-export PATH=$PATH:$HOME/.cargo/bin
 
 # Use 'bat' instead of cat
 alias cat=bat
-
-# fabric8-wit environment variables
-export F8_DEVELOPER_MODE_ENABLED=1
-export F8_RESOURCE_DATABASE=1
-export F8_RESOURCE_UNIT_TEST=0
-
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
