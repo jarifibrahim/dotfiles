@@ -28,3 +28,5 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # Install fzf
 
 # Install i3, pavucontrolj, docker, golang
+
+# Install system monitor https://extensions.gnome.org/extension/120/system-monitor
