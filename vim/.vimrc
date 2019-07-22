@@ -1,65 +1,78 @@
+"Vundle Initialization
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-"Enable Vundle for plugin management.
-set nocompatible
-filetype off
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
-Plugin 'fatih/molokai'
-Plugin 'Valloric/YouCompleteMe'
-" IMPORTANT NOTE: nsf/gocode is what does the autocompletion.
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" For Git
+" let Vundle manage vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Plugin for Git
 Plugin 'tpope/vim-fugitive'
+" Molokai theme for vim
+Plugin 'fatih/molokai'
+" Plugin for Golang
+Plugin 'fatih/vim-go'
+" Plugin for golang auto-completion
+Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-airline/vim-airline'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" Track the engine.
-Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-call vundle#end()
-filetype plugin indent on
-"Ok. Done.
+" Color scheme (theme)
+colorscheme molokai
 
-let g:molokai_original=1
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
+" format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
+
+set relativenumber number ruler hlsearch incsearch smartcase ignorecase
+
+" exit insert, dd line, enter insert
+inoremap <c-d> <esc>ddi
+
+" Move to the start of the line
+noremap H ^
+" Move to the end of the line
+noremap L g_
+
+" Use ; instead of :
+noremap ; :
+
+" highlight the current line number
+hi CursorLineNR guifg=#ffffff
+
+" Use ag for searches
+"let g:ackprg = 'ag --vimgrep --smart-case'
+
+" highlight text over 100 characters
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+
+" Disable arrow keys
+noremap <Up>	<Nop>
+noremap <Down>	<Nop>
+noremap <Left>	<Nop>
+noremap <Right>	<Nop>
+
+nnoremap <F3> :set hlsearch!<CR>
+
+noremap <c-p> :Files<CR>
+
+" Search from the project root instead of cwd
+"let g:ag_working_path_mode="r"
+
+" Start search by pressing \
+nnoremap \ :Rg<CR>
+
 set tabstop=2
 set shiftwidth=2
 set autoindent
-set ignorecase
-set smartcase
-set number
-set ruler
-syntax on
-set backspace=indent,eol,start
-
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-h>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-m>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-"if exists ("g:did_load_filetypes")
-" filetype off
-" filetype plugin indent off
-"endif
-"set runtimepath+=/usr/local/go/misc/vim
-"filetype plugin indent on
-
-"autocmd FileType go autocmd BufWritePre <buffer> Fmt
-"highlight Pmenu ctermfg=White ctermbg=Black
-"highlight PmenuSel ctermfg=Blue
-
-" Open file at a position where it was last left.
-au BufWinLeave *.go mkview
-au BufWinEnter *.go silent loadview
-
-autocmd Filetype gitcommit setlocal spell textwidth=72
-

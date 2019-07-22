@@ -117,3 +117,16 @@ alias c="code ."
 
 # Use 'bat' instead of cat
 alias cat=bat
+alias cc="free -mh && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches && sudo swapoff -a && sudo swapon -a && free -mh"
+
+function scratch() {
+  local SCRATCH=$(mktemp -d)
+  echo 'Spawing subshell in scratch directory:'
+  echo "  $SCRATCH"
+  (cd $SCRATCH; zsh)
+  echo "Removing scratch directory"
+  rm -r "$SCRATCH"
+}
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
