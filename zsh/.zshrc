@@ -130,3 +130,6 @@ function scratch() {
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
+alias d="$GOPATH/src/github.com/dgraph-io/dgraph"
+alias b="$GOPATH/src/github.com/dgraph-io/badger"
+alias gtf="go test -failfast"
