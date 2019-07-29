@@ -25,12 +25,15 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let g:gruvbox_contrast_dark='hard'
 " Color scheme (theme)
-colorscheme molokai
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
@@ -67,12 +70,16 @@ nnoremap <F3> :set hlsearch!<CR>
 
 noremap <c-p> :Files<CR>
 
-" Search from the project root instead of cwd
-"let g:ag_working_path_mode="r"
-
-" Start search by pressing \
-nnoremap \ :Rg<CR>
-
 set tabstop=2
 set shiftwidth=2
 set autoindent
+
+" Gdiff vertically
+set diffopt+=vertical
+
+" Use leader y to copy to system clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+
