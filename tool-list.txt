@@ -14,3 +14,4 @@ n
 system-monitor - https://extensions.gnome.org/extension/120/system-monitor/
 genius
 cmake
+Ripgrep
