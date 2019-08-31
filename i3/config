@@ -195,3 +195,6 @@ bindsym $mod+shift+i exec i3-sensible-terminal -e htop
 # Set wallpaper
 exec_always feh --bg-scale /home/ibrahim/Pictures/wallhaven-p8jvpp.jpg
 
+# Screen Shots
+bindsym Control+Print exec gnome-screenshot -i
+
