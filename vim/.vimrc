@@ -83,3 +83,9 @@ noremap <Leader>p "+p
 
 "let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" show smarter tab line
+let g:airline#extensions#tabline#enabled = 1
+
+" Tab navigation like Firefox.
+noremap <c-s-tab> :bprev<CR>
+nnoremap <c-tab>   :bnext<CR>
