@@ -183,7 +183,7 @@ bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 bindsym $mod+shift+i exec i3-sensible-terminal -e htop
 
 # Set wallpaper
-exec_always feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 
 # Screen Shots
 bindsym Control+Print exec gnome-screenshot -i
