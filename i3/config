@@ -167,12 +167,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3blocks
-}
-
 # Volume and brightness controls
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +10% && pactl -- set-sink-volume 1 +10% #increase sound volume
@@ -201,3 +195,5 @@ bindsym Control+Print exec gnome-screenshot -i
 # Reverse scroll for laptop
 exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
 
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
