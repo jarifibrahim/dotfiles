@@ -181,7 +181,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 exec_always xrandr --output HDMI-0 --mode 2560x1440
 
 # Lock screen on mod+shift+x
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 
 # Open htop on mod+shift+i
 bindsym $mod+shift+i exec i3-sensible-terminal -e htop
