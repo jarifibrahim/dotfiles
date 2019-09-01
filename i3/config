@@ -188,8 +188,13 @@ exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 # Screen Shots
 bindsym Control+Print exec gnome-screenshot -i
 
-# Reverse scroll for laptop
-exec xinput set-prop 12 "libinput Natural Scrolling Enabled" 1
+# Tap to click for laptop (Tapping enabled)
+exec xinput set-prop 12 316 1
+
+# For i3-gaps
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 5
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
