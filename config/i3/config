@@ -148,10 +148,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -174,7 +174,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pactl set-sink-mute 1 toggle # mute sound
 
 # Resolution and sound fix for office monitor
-exec_always xrandr --output HDMI-0 --mode 2560x1440
+exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
 
 # Lock screen on mod+shift+x
 bindsym $mod+shift+x exec ~/.config/i3/lock.sh
@@ -189,7 +189,7 @@ exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 bindsym Control+Print exec gnome-screenshot -i
 
 # Tap to click for laptop (Tapping enabled)
-exec xinput set-prop 12 316 1
+exec --no-startup-id xinput set-prop 12 316 1
 
 # For i3-gaps
 for_window [class=".*"] border pixel 0
