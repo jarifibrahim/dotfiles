@@ -18,5 +18,9 @@ alias cc="free -mh && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches && sudo
 
 alias d="$GOPATH/src/github.com/dgraph-io/dgraph"
 alias b="$GOPATH/src/github.com/dgraph-io/badger"
+alias rr="$GOPATH/src/github.com/dgraph-io/ristretto"
+alias f="$GOPATH/src/github.com/jarifibrahim/foo"
+
 alias gtf="go test -v -failfast"
 alias n="nvim"
+

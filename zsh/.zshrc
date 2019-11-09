@@ -112,6 +112,10 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/go/bin
 
+# Tmux needs these
+export TERM=xterm-256color
+export LC_ALL=en_US.UTF-8
+
 function scratch() {
   local SCRATCH=$(mktemp -d)
   echo 'Spawing subshell in scratch directory:'
@@ -122,3 +126,4 @@ function scratch() {
 }
 
 [ -f ./aliases.zsh ] && source ./aliases.zsh
+
