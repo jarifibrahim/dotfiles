@@ -104,31 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-## For Git
-alias ga="git add"
-alias gb="git branch"
-alias gc="git checkout"
-alias gca="git checkout -- ."
-alias gd="git diff"
-alias gs="git status"
-alias gg="git grep"
-alias gp="git pull upstream master"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 export GOPATH=$HOME/Projects/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/go/bin
-
-alias dcm="docker-compose up -d db-auth auth db && make migrate-database"
-alias dra="docker rm -v -f \$(docker ps -aq)"
-
-alias c="code ."
-
-# Use 'bat' instead of cat
-alias cat=bat
-alias cc="free -mh && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches && sudo swapoff -a && sudo swapon -a && free -mh"
 
 function scratch() {
   local SCRATCH=$(mktemp -d)
@@ -139,9 +121,4 @@ function scratch() {
   rm -r "$SCRATCH"
 }
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-
-alias d="$GOPATH/src/github.com/dgraph-io/dgraph"
-alias b="$GOPATH/src/github.com/dgraph-io/badger"
-alias gtf="go test -failfast"
-alias n="nvim"
+[ -f ./aliases.zsh ] && source ./aliases.zsh
