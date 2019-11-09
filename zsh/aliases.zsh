@@ -8,6 +8,7 @@ alias gs="git status"
 alias gg="git grep"
 alias gp="git pull upstream master"
 
+alias install="sudo apt install"
 alias dra="docker rm -v -f \$(docker ps -aq)"
 alias c="code ."
 
