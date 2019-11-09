@@ -12,8 +12,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin for Git
 Plugin 'tpope/vim-fugitive'
-" Molokai theme for vim
-Plugin 'fatih/molokai'
+" Vscode Dark Theme
+Plugin 'tomasiser/vim-code-dark'
+
 " Plugin for Golang
 Plugin 'fatih/vim-go'
 " Plugin for golang auto-completion
@@ -30,10 +31,9 @@ Plugin 'morhetz/gruvbox'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let g:gruvbox_contrast_dark='hard'
 " Color scheme (theme)
-colorscheme gruvbox
-set background=dark    " Setting dark mode
+colorscheme codedark
+let g:airline_theme = 'codedark'
 
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
@@ -70,7 +70,7 @@ nnoremap <F3> :set hlsearch!<CR>
 
 noremap <c-p> :Files<CR>
 
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set autoindent
 
@@ -89,3 +89,5 @@ let g:airline#extensions#tabline#enabled = 1
 " Tab navigation like Firefox.
 noremap <c-s-tab> :bprev<CR>
 nnoremap <c-tab>   :bnext<CR>
+let $FZF_DEFAULT_COMMAND="rg --files"
+
