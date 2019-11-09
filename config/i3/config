@@ -167,11 +167,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Volume and brightness controls
+# Volume controls
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +10% && pactl -- set-sink-volume 1 +10% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10% && pactl -- set-sink-volume 1 -10% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pactl set-sink-mute 1 toggle # mute sound
+
+# Brightness control for laptop
+# https://github.com/haikarainen/light
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 # Resolution and sound fix for office monitor
 exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
@@ -190,11 +195,19 @@ bindsym Control+Print exec gnome-screenshot -i
 
 # Tap to click for laptop (Tapping enabled)
 exec --no-startup-id xinput set-prop 12 316 1
+# Natural scrolling
+exec --no-startup-id xinput set-prop 12 324 1
 
 # For i3-gaps
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 5
 gaps inner 10
-gaps outer 5
+# Activate smart borders (always)
+smart_borders on
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Required for google-chrome password sync
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+
