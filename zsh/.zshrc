@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
@@ -121,5 +122,7 @@ function scratch() {
   rm -r "$SCRATCH"
 }
 
-[ -f ./aliases.zsh ] && source ./aliases.zsh
+[ -f $HOME/aliases.zsh ] && source $HOME/aliases.zsh
 
+# For tmux and powerline
+export LC_ALL=en_US.UTF-8
