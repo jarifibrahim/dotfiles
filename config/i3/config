@@ -103,7 +103,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10: Youtube"
+set $ws10 "10: Spotify"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -188,7 +188,7 @@ bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 bindsym $mod+shift+i exec i3-sensible-terminal -e htop
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper3.jpg
 
 # Screen Shots
 bindsym Control+Print exec gnome-screenshot -i
@@ -214,3 +214,8 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 bindsym $mod+n exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym $mod+p exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym $mod+s exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+# Connect bluetooth from keyboard
+bindsym $mod+m exec --no-startup-id bluetoothctl connect CC:98:8B:A8:6E:68
+bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E:68
+

@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin for Git
 Plugin 'tpope/vim-fugitive'
 " Vscode Dark Theme
-Plugin 'tomasiser/vim-code-dark'
+"Plugin 'tomasiser/vim-code-dark'
 
 " Plugin for Golang
 Plugin 'fatih/vim-go'
@@ -32,8 +32,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Color scheme (theme)
-colorscheme codedark
-let g:airline_theme = 'codedark'
+colorscheme gruvbox
+
+"let g:airline_theme = 'codedark'
 
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
@@ -90,4 +91,7 @@ let g:airline#extensions#tabline#enabled = 1
 noremap <c-s-tab> :bprev<CR>
 nnoremap <c-tab>   :bnext<CR>
 let $FZF_DEFAULT_COMMAND="rg --files"
+
+" Search for highlighted text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
