@@ -219,3 +219,7 @@ bindsym $mod+s exec --no-startup-id dbus-send --print-reply --dest=org.mpris.Med
 bindsym $mod+m exec --no-startup-id bluetoothctl connect CC:98:8B:A8:6E:68
 bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E:68
 
+# Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
+xcape -e 'Control_L=Escape'&
+setxkbmap -option ctrl:swapcaps
+
