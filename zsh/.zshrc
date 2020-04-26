@@ -126,3 +126,7 @@ function scratch() {
 
 # For tmux and powerline
 export LC_ALL=en_US.UTF-8
+
+# Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
+#xcape -e 'Control_L=Escape'&
+#setxkbmap -option ctrl:swapcaps
