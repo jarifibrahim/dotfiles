@@ -188,15 +188,15 @@ bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 bindsym $mod+shift+i exec i3-sensible-terminal -e htop
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper3.jpg
+exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 
 # Screen Shots
 bindsym Control+Print exec gnome-screenshot -i
 
 # Tap to click for laptop (Tapping enabled)
-exec --no-startup-id xinput set-prop 12 316 1
+exec_always --no-startup-id xinput set-prop 12 330 1
 # Natural scrolling
-exec --no-startup-id xinput set-prop 12 324 1
+exec_always --no-startup-id xinput set-prop 12 338 1
 
 # For i3-gaps
 for_window [class=".*"] border pixel 5
@@ -219,7 +219,7 @@ bindsym $mod+s exec --no-startup-id dbus-send --print-reply --dest=org.mpris.Med
 bindsym $mod+m exec --no-startup-id bluetoothctl connect CC:98:8B:A8:6E:68
 bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E:68
 
-# Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
-xcape -e 'Control_L=Escape'&
-setxkbmap -option ctrl:swapcaps
 
+# https://i3wm.org/docs/userguide.html#focus_on_window_activation
+# Focus on newly created windows.
+focus_on_window_activation focus
