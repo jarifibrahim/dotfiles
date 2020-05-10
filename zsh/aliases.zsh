@@ -23,5 +23,8 @@ alias rr="$GOPATH/src/github.com/dgraph-io/ristretto"
 alias f="$GOPATH/src/github.com/jarifibrahim/foo"
 
 alias gtf="go test -v -failfast"
+alias gtb="go test -v -run ^$"
 alias n="nvim"
 
+alias c="xclip"
+alias v="xclip -o"
