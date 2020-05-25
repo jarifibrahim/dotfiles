@@ -28,8 +28,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
-monitor = eDP-1-1
+monitor = ${env:MONITOR:eDP-1-1}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -169,7 +168,7 @@ interface = wlp3s0
 interval = 3.0
 
 ;format-connected-underline = #9f78e1
-label-connected =   %essid%
+label-connected =   %essid%%{F#df}%upspeed% %downspeed%
 label-connected-foreground = #82B414
 format-connected = <label-connected>
 
