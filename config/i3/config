@@ -102,7 +102,7 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: Slack"
 set $ws10 "10: Spotify"
 
 # switch to workspace
@@ -194,9 +194,9 @@ exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 bindsym Control+Print exec gnome-screenshot -i
 
 # Tap to click for laptop (Tapping enabled)
-exec_always --no-startup-id xinput set-prop 12 330 1
+exec_always --no-startup-id xinput set-prop 12 331 1
 # Natural scrolling
-exec_always --no-startup-id xinput set-prop 12 338 1
+exec_always --no-startup-id xinput set-prop 12 339 1
 
 # For i3-gaps
 for_window [class=".*"] border pixel 5
