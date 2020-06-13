@@ -1,45 +1,44 @@
-"Vundle Initialization
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-
-" let Vundle manage vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin("~/.vim/plugged")
 " Plugin for Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fugitive'
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'ervandew/supertab'
+Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-rhubarb'
+Plug 'unblevable/quick-scope'
 
 " Plugin for Golang
-Plugin 'fatih/vim-go'
-Plugin 'ycm-core/YouCompleteMe'
+Plug 'fatih/vim-go'
+Plug 'ycm-core/YouCompleteMe'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'takac/vim-hardtime'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'vim-airline/vim-airline'
-Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-surround'
+Plug 'SirVer/ultisnips'
+Plug 'takac/vim-hardtime'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround'
+Plug 'ThePrimeagen/vim-be-good'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " Color scheme (theme)
 colorscheme gruvbox
 
+" Highlight only on some keys.
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 let g:go_fmt_command = "goimports"   " Run goimports along gofmt on each save
 let g:go_auto_type_info = 1          " Automatically get signature/type info for object under cursor
+" Highlight build constraints
+" https://github.com/fatih/vim-go-tutorial#beautify-it
+let g:go_highlight_build_constraints = 1
 
 set relativenumber number ruler hlsearch incsearch smartcase ignorecase
 
@@ -58,7 +57,9 @@ noremap : ,
 hi CursorLineNR guifg=#ffffff
 
 " highlight text over 100 characters
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+" au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+set colorcolumn=100
+
 let mapleader = " "
 
 " Disable arrow keys
@@ -69,7 +70,8 @@ noremap <Right>	<Nop>
 
 nnoremap <F3> :set hlsearch!<CR>
 noremap <c-p> :Files<CR>
-
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
 noremap <leader>o :GoDeclsDir<CR>
 noremap <leader>g :GoDecls<CR>
 noremap <leader>r :GoReferrers<CR>
@@ -109,18 +111,15 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " set completeopt=longest,menuone
 
 " Reverse the direction of completion.
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Disable preview https://github.com/junegunn/fzf.vim#preview-window
 let g:fzf_preview_window = ''
 
-" Highlight build constraints
-" https://github.com/fatih/vim-go-tutorial#beautify-it
-let g:go_highlight_build_constraints = 1
 
 " Enable vim hardtime which blocks repeated characters
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg=1
+" let g:hardtime_default_on = 1
+" let g:hardtime_showmsg=1
 
 " Run meta linter => autosave_enabled doesn't seem to work. It runs errCheck
 " always.
@@ -151,3 +150,11 @@ set inccommand=nosplit
 " Consider all numerals as decimal
 " Useful in <c-x> and <c-a>
 set nrformats=
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
