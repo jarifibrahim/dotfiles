@@ -7,7 +7,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-rhubarb'
 Plug 'unblevable/quick-scope'
 
@@ -72,13 +72,26 @@ nnoremap <F3> :set hlsearch!<CR>
 noremap <c-p> :Files<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
+" Vim-go
 noremap <leader>o :GoDeclsDir<CR>
 noremap <leader>g :GoDecls<CR>
 noremap <leader>r :GoReferrers<CR>
+noremap <leader>t :GoTestFunc<CR>
+
+" Vim-fugitive
+noremap <leader>v :Gbrowse<CR>
+noremap <leader>b :Gblame<CR>
+
+"
 noremap <leader>f :R<CR>
 " Use leader y to copy to system clipboard
 noremap <Leader>y "+y
 noremap <Leader>p "+p
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 
 "https://github.com/fatih/vim-go-tutorial#vimrc-improvements-4
 autocmd BufNewFile,BufRead *.go setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
@@ -154,7 +167,3 @@ set nrformats=
 " Give more space for displaying messages.
 set cmdheight=2
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
