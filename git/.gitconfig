@@ -1,14 +1,17 @@
 [user]
 	name = Ibrahim Jarif
-	email = jarifibrahim@gmail.com
+	email = ibrahim@dgraph.io
 [credential]
 	helper = store
 [alias]
 	pr = "!f() { git fetch -fu ${2:-upstream} pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
 	pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr-* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	diff-branch = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+	find-missing= "!f(){}"
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [core]
-	editor = vim
+	editor = nvim
+[http]
+	cookiefile = /home/ibrahim/.gitcookies
