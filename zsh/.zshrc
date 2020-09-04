@@ -71,6 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   zsh-autosuggestions
+  colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,5 +129,20 @@ function scratch() {
 export LC_ALL=en_US.UTF-8
 
 # Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
-#xcape -e 'Control_L=Escape'&
+#xcape -e 'Control_L=Escape'
 #setxkbmap -option ctrl:swapcaps
+
+# Map an unused modifier's keysym to the spacebar's keycode and make it a
+# control modifier. It needs to be an existing key so that emacs won't
+# spazz out when you press it. Hyper_L is a good candidate.
+# spare_modifier="Hyper_L"
+# xmodmap -e "keycode 65 = $spare_modifier"
+# xmodmap -e "remove mod4 = $spare_modifier" # hyper_l is mod4 by default
+# xmodmap -e "add Control = $spare_modifier"
+
+# # Map space to an unused keycode (to keep it around for xcape to
+# # use).
+# xmodmap -e "keycode any = space"
+
+# # Finally use xcape to cause the space bar to generate a space when tapped.
+# xcape -e "$spare_modifier=space"
