@@ -96,13 +96,13 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Editor"
 set $ws2 "2: Chrome"
-set $ws3 "3"
+set $ws3 "3: Slack"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9: Slack"
+set $ws8 "8: Zoom"
+set $ws9 "9"
 set $ws10 "10: Spotify"
 
 # switch to workspace
@@ -117,8 +117,8 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-assign [class="Code"] $ws1
-assign [class="Google-chrome"] $ws2
+# assign [class="Code"] $ws1
+# assign [class="Google-chrome"] $ws2
 
 
 # move focused container to workspace
@@ -179,7 +179,7 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
 # Resolution and sound fix for office monitor
-exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
+# exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
 
 # Lock screen on mod+shift+x
 bindsym $mod+shift+x exec ~/.config/i3/lock.sh
@@ -194,9 +194,9 @@ exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 bindsym Control+Print exec gnome-screenshot -i
 
 # Tap to click for laptop (Tapping enabled)
-exec_always --no-startup-id xinput set-prop 12 331 1
+exec_always --no-startup-id xinput set-prop $(xinput list | grep -i -E "touchpad.+id=" | grep -i -Eo "[0-9]{2}+") 352 1
 # Natural scrolling
-exec_always --no-startup-id xinput set-prop 12 339 1
+exec_always --no-startup-id xinput set-prop $(xinput list | grep -i -E "touchpad.+id=" | grep -i -Eo "[0-9]{2}+") 334 1
 
 # For i3-gaps
 for_window [class=".*"] border pixel 5
@@ -226,3 +226,6 @@ bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E
 # https://i3wm.org/docs/userguide.html#focus_on_window_activation
 # Focus on newly created windows.
 focus_on_window_activation focus
+
+workspace $ws9 output eDP-1-1
+workspace $ws10 output eDP-1-1
