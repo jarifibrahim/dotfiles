@@ -6,7 +6,7 @@ alias gca="git checkout -- ."
 alias gd="git diff"
 alias gs="git status"
 alias gg="git grep"
-alias gp="git pull upstream master"
+alias gp="git pull"
 
 alias install="sudo apt install"
 alias dra="docker rm -v -f \$(docker ps -aq)"
@@ -21,10 +21,22 @@ alias d="$GOPATH/src/github.com/dgraph-io/dgraph"
 alias b="$GOPATH/src/github.com/dgraph-io/badger"
 alias rr="$GOPATH/src/github.com/dgraph-io/ristretto"
 alias f="$GOPATH/src/github.com/jarifibrahim/foo"
+alias bb="$GOPATH/src/github.com/jarifibrahim/bar"
 
 alias gtf="go test -v -failfast"
-alias gtb="go test -v -run ^$"
+alias gtfb="go test -v -failfast -run ^$"
 alias n="nvim"
 
-alias c="xclip"
-alias v="xclip -o"
+alias c="clipcopy"
+
+# Global in-replace replacement alias
+alias -g G=' | grep'
+alias xtime="/usr/bin/time -f '%Uu %Ss %er %MkB %C' "$@""
+
+alias conv="echo "$@" | numfmt --to iec"
+
+alias dz="dgraph zero"
+alias mdz="make install && dgraph zero"
+alias da="dgraph alpha"
+alias mda="make install && dgraph alpha"
+alias m="make install"
