@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-PICTURE=~/Pictures/rick.png
+PICTURE=./rick.png
 
 insidecolor=00000000
 ringcolor=ffffffff
