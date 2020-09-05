@@ -24,7 +24,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
-Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
