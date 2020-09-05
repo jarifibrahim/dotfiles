@@ -29,7 +29,7 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Color scheme (theme)
-colorscheme gruvbox 
+colorscheme gruvbox
 
 " Highlight only on some keys.
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
