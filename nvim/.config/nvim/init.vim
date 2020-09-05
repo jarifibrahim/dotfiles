@@ -9,6 +9,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
 " Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-rhubarb'
+" Highlight unique character in every line.
 Plug 'unblevable/quick-scope'
 
 " Plugin for Golang
@@ -16,10 +17,10 @@ Plug 'fatih/vim-go'
 Plug 'ycm-core/YouCompleteMe'
 
 Plug 'SirVer/ultisnips'
-Plug 'takac/vim-hardtime'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
@@ -28,7 +29,7 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Color scheme (theme)
-colorscheme gruvbox
+colorscheme gruvbox 
 
 " Highlight only on some keys.
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -73,13 +74,17 @@ nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 " Vim-go
 noremap <leader>o :GoDeclsDir<CR>
-noremap <leader>g :GoDecls<CR>
+" leader d is by default mapped to YcmShowDetailedDiagnostic
+noremap <leader>d :GoDecls<CR>
 noremap <leader>r :GoReferrers<CR>
 noremap <leader>t :GoTestFunc<CR>
 
 " Vim-fugitive
 noremap <leader>v :Gbrowse<CR>
 noremap <leader>b :Gblame<CR>
+noremap <leader>gs :G<CR>
+noremap <leader>gc :GBranches<CR>
+
 
 "
 noremap <leader>f :R<CR>
@@ -107,6 +112,10 @@ let g:airline#extensions#tabline#enabled = 1
 "noremap <C-s-tab> :bprev<CR>
 "nnoremap <C-tab>  :bnext<CR>
 let $FZF_DEFAULT_COMMAND="rg --files"
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+" Disable preview https://github.com/junegunn/fzf.vim#preview-window
+let g:fzf_preview_window = ''
 
 " Search for highlighted text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -124,10 +133,6 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Reverse the direction of completion.
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Disable preview https://github.com/junegunn/fzf.vim#preview-window
-let g:fzf_preview_window = ''
-
 
 " Enable vim hardtime which blocks repeated characters
 " let g:hardtime_default_on = 1
