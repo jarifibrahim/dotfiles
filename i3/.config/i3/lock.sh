@@ -21,8 +21,8 @@ locktext='Type password to unlock...'
 
 
 cleanup() {
-	rm /tmp/*screen*.png
 	xset dpms 0 0 0
+	rm /tmp/*screen*.png
 }
 
 trap cleanup HUP INT TERM EXIT
