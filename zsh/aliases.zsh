@@ -10,7 +10,6 @@ alias gp="git pull"
 
 alias install="sudo apt install"
 alias dra="docker rm -v -f \$(docker ps -aq)"
-alias c="code ."
 
 # Use 'bat' instead of cat
 alias cat=bat
@@ -29,10 +28,12 @@ alias n="nvim"
 
 alias c="clipcopy"
 
-# Global in-replace replacement alias
-alias -g G=' | grep'
+# Global in-replace replacement zsh alias
+alias -g G=' | grep -i'
+alias -g L=' | less'
 alias xtime="/usr/bin/time -f '%Uu %Ss %er %MkB %C' "$@""
 
+# Convert bytes to human readable format. 4096 => 4K
 alias conv="echo "$@" | numfmt --to iec"
 
 alias dz="dgraph zero"
