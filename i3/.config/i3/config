@@ -198,15 +198,6 @@ exec_always --no-startup-id xinput set-prop $(xinput list | grep -i -E "touchpad
 # Natural scrolling
 exec_always --no-startup-id xinput set-prop $(xinput list | grep -i -E "touchpad.+id=" | grep -i -Eo "[0-9]{2}+") 334 1
 
-# For i3-gaps
-for_window [class=".*"] border pixel 5
-gaps inner 10
-# Activate smart borders (always)
-smart_borders on
-
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # Required for google-chrome password sync
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
@@ -227,5 +218,10 @@ bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E
 # Focus on newly created windows.
 focus_on_window_activation focus
 
-workspace $ws9 output eDP-1-1
-workspace $ws10 output eDP-1-1
+bar {
+    status_command i3status
+    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+    font pango:DejaVu Sans Mono 10
+}
+
+exec_always --no-startup-id setxkbmap -option ctrl:swapcaps && xcape -e 'Control_L=Escape'
