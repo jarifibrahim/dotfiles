@@ -17,16 +17,6 @@ fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)
-# dir shorten strategy
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
-
-# Status icon
-POWERLEVEL9K_STATUS_CROSS=true
-POWERLEVEL9K_STATUS_OK=false
-
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
