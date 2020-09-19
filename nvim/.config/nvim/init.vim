@@ -70,6 +70,7 @@ noremap <Right>	<Nop>
 
 nnoremap <F3> :set hlsearch!<CR>
 noremap <c-p> :Files<CR>
+inoremap <c-f> <ESC>:BLines<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 " Vim-go
@@ -83,8 +84,9 @@ noremap <leader>t :GoTestFunc<CR>
 noremap <leader>v :Gbrowse<CR>
 noremap <leader>b :Gblame<CR>
 noremap <leader>gs :G<CR>
-noremap <leader>gc :GBranches<CR>
-
+noremap <leader>gb :GBranches<CR>
+noremap <leader>gd :G diff<CR>
+noremap <leader>gca :G checkout -- .<CR>
 
 "
 noremap <leader>f :R<CR>
@@ -132,7 +134,7 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " set completeopt=longest,menuone
 
 " Reverse the direction of completion.
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Enable vim hardtime which blocks repeated characters
 " let g:hardtime_default_on = 1
@@ -154,7 +156,7 @@ set updatetime=100
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
