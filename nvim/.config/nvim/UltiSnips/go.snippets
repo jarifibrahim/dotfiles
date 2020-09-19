@@ -1,0 +1,22 @@
+snippet rne "require.NoError(t, err)"
+require.NoError(t, err)
+endsnippet
+
+snippet re "require.Equal(t, a, b)"
+require.Equal(t, ${1}, ${2})
+endsnippet
+
+snippet bo "badger.Open(...)"
+dir, err := ioutil.TempDir("", "badger-test")
+require.NoError(t, err)
+defer removeDir(dir)
+
+opt := DefaultOptions(dir)
+db, err := Open(opt)
+require.NoError(t, err)
+endsnippet
+
+snippet rbt "badger.Open(...)"
+runBadgerTest(t, nil, func(t *testing.T, db *DB) {
+}
+endsnippet
