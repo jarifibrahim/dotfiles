@@ -39,6 +39,10 @@ let g:go_auto_type_info = 1          " Automatically get signature/type info for
 " Highlight build constraints
 " https://github.com/fatih/vim-go-tutorial#beautify-it
 let g:go_highlight_build_constraints = 1
+" Use nvim terminal instead of background job.
+let g:go_term_enabled = 1
+
+let g:go_term_close_on_exit = 0
 
 set relativenumber number ruler hlsearch incsearch smartcase ignorecase
 
@@ -84,7 +88,7 @@ noremap <leader>t :GoTestFunc<CR>
 noremap <leader>v :Gbrowse<CR>
 noremap <leader>b :Gblame<CR>
 noremap <leader>gs :G<CR>
-noremap <leader>gb :GBranches<CR>
+noremap <leader>gb :GoBuild<CR>
 noremap <leader>gd :G diff<CR>
 noremap <leader>gca :G checkout -- .<CR>
 
@@ -100,7 +104,8 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 "https://github.com/fatih/vim-go-tutorial#vimrc-improvements-4
-autocmd BufNewFile,BufRead *.go setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
+" autocmd BufNewFile,BufRead *.go setlocal 
+set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " Gdiff vertically
 set diffopt+=vertical
@@ -173,3 +178,5 @@ set nrformats=
 " Give more space for displaying messages.
 set cmdheight=2
 
+" Open vsplit on right.
+set splitright

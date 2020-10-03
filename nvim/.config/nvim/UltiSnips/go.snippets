@@ -2,6 +2,10 @@ snippet rne "require.NoError(t, err)"
 require.NoError(t, err)
 endsnippet
 
+snippet rn "require.NoError(t, $$$)"
+require.NoError(t, ${1})
+endsnippet
+
 snippet re "require.Equal(t, a, b)"
 require.Equal(t, ${1}, ${2})
 endsnippet
@@ -18,5 +22,5 @@ endsnippet
 
 snippet rbt "badger.Open(...)"
 runBadgerTest(t, nil, func(t *testing.T, db *DB) {
-}
+})
 endsnippet
