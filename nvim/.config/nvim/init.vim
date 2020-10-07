@@ -20,17 +20,20 @@ Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
+
+Plug 'morhetz/gruvbox'
+Plug 'fatih/molokai'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
 " Color scheme (theme)
-colorscheme gruvbox
-
+" colorscheme gruvbox
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
 " Highlight only on some keys.
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -39,9 +42,12 @@ let g:go_auto_type_info = 1          " Automatically get signature/type info for
 " Highlight build constraints
 " https://github.com/fatih/vim-go-tutorial#beautify-it
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
 " Use nvim terminal instead of background job.
 let g:go_term_enabled = 1
-
 let g:go_term_close_on_exit = 0
 
 set relativenumber number ruler hlsearch incsearch smartcase ignorecase
@@ -88,15 +94,16 @@ noremap <leader>t :GoTestFunc<CR>
 noremap <leader>v :Gbrowse<CR>
 noremap <leader>b :Gblame<CR>
 noremap <leader>gs :G<CR>
-noremap <leader>gb :GoBuild<CR>
+noremap <leader>w :GoBuild<CR>
 noremap <leader>gd :G diff<CR>
 noremap <leader>gca :G checkout -- .<CR>
 
 "
 noremap <leader>f :R<CR>
 " Use leader y to copy to system clipboard
-noremap <Leader>y "+y
-noremap <Leader>p "+p
+" noremap <Leader>y "+y
+" noremap <Leader>p "+p
+set clipboard+=unnamedplus
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -104,7 +111,7 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
 "https://github.com/fatih/vim-go-tutorial#vimrc-improvements-4
-" autocmd BufNewFile,BufRead *.go setlocal 
+" autocmd BufNewFile,BufRead *.go setlocal
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 " Gdiff vertically
@@ -115,14 +122,9 @@ set diffopt+=vertical
 " show smarter tab line
 let g:airline#extensions#tabline#enabled = 1
 
-" Tab navigation like Firefox.
-"noremap <C-s-tab> :bprev<CR>
-"nnoremap <C-tab>  :bnext<CR>
 let $FZF_DEFAULT_COMMAND="rg --files"
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
-" Disable preview https://github.com/junegunn/fzf.vim#preview-window
-let g:fzf_preview_window = ''
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 " Search for highlighted text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -176,7 +178,11 @@ set inccommand=nosplit
 set nrformats=
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Open vsplit on right.
 set splitright
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
