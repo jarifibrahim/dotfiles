@@ -117,9 +117,6 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
-# assign [class="Code"] $ws1
-# assign [class="Google-chrome"] $ws2
-
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -167,16 +164,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Volume controls
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +10% && pactl -- set-sink-volume 1 +10% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -10% && pactl -- set-sink-volume 1 -10% #decrease sound volume
+# Run "pactl list sinks" to list the sinks
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl -- set-sink-volume 0 +10%; pactl -- set-sink-volume 18 +10%"
+# decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 0 -10%; pactl -- set-sink-volume 18 -10%"
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pactl set-sink-mute 1 toggle # mute sound
-
-# Brightness control for laptop
-# https://github.com/haikarainen/light
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
 
 # Resolution and sound fix for office monitor
 # exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
@@ -184,11 +177,10 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # Lock screen on mod+shift+x
 bindsym $mod+shift+x exec ~/.config/i3/lock.sh
 
+# Open pavucontrol
+bindsym $mod+shift+p exec pavucontrol
 # Open htop on mod+shift+i
 bindsym $mod+shift+i exec i3-sensible-terminal -e htop
-
-# Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallpaper.jpg
 
 # Screen Shots
 bindsym Control+Print exec gnome-screenshot -i
@@ -210,18 +202,25 @@ bindsym $mod+s exec --no-startup-id dbus-send --print-reply --dest=org.mpris.Med
 bindsym $mod+m exec --no-startup-id bluetoothctl connect CC:98:8B:A8:6E:68
 bindsym $mod+Shift+m exec --no-startup-id bluetoothctl disconnect CC:98:8B:A8:6E:68
 
-# Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
-# xcape -e 'Control_L=Escape'&
-# setxkbmap -option ctrl:swapcaps
-
 # https://i3wm.org/docs/userguide.html#focus_on_window_activation
 # Focus on newly created windows.
-focus_on_window_activation focus
+# focus_on_window_activation focus
 
 bar {
     status_command i3status
+
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 10
+    tray_output primary
 }
 
+# Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
 exec_always --no-startup-id setxkbmap -option ctrl:swapcaps && xcape -e 'Control_L=Escape'
+exec_always --no-startup-id xrandr --output HDMI-2 --primary --auto --left-of eDP-1
+
+# Set wallpaper
+exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallhaven-2.jpg
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec_always --no-startup-id nm-applet
