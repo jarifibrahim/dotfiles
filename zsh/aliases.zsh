@@ -10,7 +10,7 @@ alias gp="git pull"
 alias gu="git push"
 
 alias install="sudo apt install"
-alias dra="docker rm -v -f \$(docker ps -aq)"
+alias dra="docker rm -v -f \$(docker ps -aq) && docker volume rm -f \$(docker volume ls -q)"
 
 # Use 'bat' instead of cat
 alias cat=bat
@@ -19,6 +19,7 @@ alias cc="free -mh && sync && echo 3 | sudo tee /proc/sys/vm/drop_caches && sudo
 
 alias d="$GOPATH/src/github.com/dgraph-io/dgraph"
 alias b="$GOPATH/src/github.com/dgraph-io/badger"
+alias cl="$GOPATH/src/github.com/dgraph-io/cloud"
 alias rr="$GOPATH/src/github.com/dgraph-io/ristretto"
 alias f="$GOPATH/src/github.com/jarifibrahim/foo"
 alias bb="$GOPATH/src/github.com/jarifibrahim/bar"
