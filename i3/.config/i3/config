@@ -175,7 +175,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pactl
 # exec_always --no-startup-id xrandr --output HDMI-0 --mode 2560x1440
 
 # Lock screen on mod+shift+x
-bindsym $mod+shift+x exec ~/.config/i3/lock.sh
+bindsym $mod+shift+x exec i3lock
 
 # Open pavucontrol
 bindsym $mod+shift+p exec pavucontrol
@@ -216,11 +216,17 @@ bar {
 
 # Use caps key as ctrl and escape (https://www.reddit.com/r/vim/comments/38ykvf/vim_hurting_my_hand/cryvbop/)
 exec_always --no-startup-id setxkbmap -option ctrl:swapcaps && xcape -e 'Control_L=Escape'
-exec_always --no-startup-id xrandr --output HDMI-2 --primary --auto --left-of eDP-1
+# exec_always --no-startup-id xrandr --output HDMI-2 --primary --auto --right-of eDP-1
+exec_always --no-startup-id xrandr --output DVI-I-3-2 --auto --right-of eDP-1 --primary
+exec_always --no-startup-id xrandr --output DVI-I-2-1 --auto --right-of DVI-I-3-2
+
+exec --no-startup-id safeeyes
+exec --no-startup-id redshift
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallhaven-2.jpg
+exec_always --no-startup-id feh --bg-scale /home/ibrahim/Pictures/wallhaven-3.jpg
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id nm-applet
+
